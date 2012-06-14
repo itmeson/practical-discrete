@@ -1,15 +1,58 @@
 \documentclass[11pt]{book}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%              tex2sws                    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Defines the environments for sage code
+\usepackage{sagetex}
+%% Use the  worksheet  boolean to control
+%% items like vertical spacing and margins
+%% that vary between the printed page and
+%% a web page
+\usepackage{ifthen}
+\newboolean{worksheet}
+\ifx \HCode\UnDef \setboolean{worksheet}{false}
+\else             \setboolean{worksheet}{true} \fi
+%% Use this before any pgf/tikz packages are included
+\ifthenelse{\boolean{worksheet}}
+{\def\pgfsysdriver{pgfsys-tex4ht.def}}{\relax}
+%% Use this if you have hyperlinks
+\ifthenelse{\boolean{worksheet}}
+{\usepackage[tex4ht]{hyperref}}{\usepackage[pdftex]{hyperref}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%%  syntax package will display SAGE code inline (code not executed)
+%%  Needs \% to effect a percent symbol
+%%  sagetex package offers a \percent, which we might use if supported by tex4ht
+%%  Needs \caret command (defined below) to effect SAGE exponentiation output
+%%  It would be nice to accomplish all this with the sagetex package - just 
+%%  inline pretty-printing of very small hunks of SAGE, with no evaluation
+\usepackage{syntax}
+\newcommand{\sageinline}[1]{\lit*{#1}}
+\newcommand{\caret}{\^{}}
 
-% License: I am following along with the GFDL - Judson-Beezer abstract
-% algebra text, mostly to help me figure out how to do the formatting
-% and setup, not at all for content.  My plan is to _not_ cut and
-% paste any of it, to leave myself open to other licenses than GFDL.
+% For tikz graphics, with pdflatex or tex2sws
+\usepackage{tikz}
+
+% For combinatorial graphs
+% Seems to have some conflict with the syntax package
+% So choose one or the other
+% \usepackage{tkz-graph, tkz-berge}
+
+%
 
 \title{{\bf Practical Discrete}\\A complete introduction}
 \author{Mark Betnel\\Johnson and Wales University}
 \date{\today}
 
 \begin{document}
+%
+%
+Sage can compute some large numbers quickly, especially with the
+\sageinline{factorial()} function.
+%
+
 \pagestyle{headings}
 \maketitle
 
@@ -17,5 +60,9 @@
 \include{Intro/index}
 %etc.
 
+\begin{sageverbatim}
+factorial(2010)
+\end{sageverbatim}
+%
 \end{document}
 
