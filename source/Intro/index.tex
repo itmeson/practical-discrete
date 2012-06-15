@@ -43,17 +43,55 @@ guess?  Don't click on the ``Answer'' link below until you are
 satisfied that you have an answer.  You can use the computation box
 below to do some figuring, if you have to.
 
+
+\begin{sageverbatim}
+#You can use this cell like a calculator.  
+#Type in a calculation, and hit ``Shift-enter'' to evaluate.
+\end{sageverbatim}
+
+
+%right here I want a ``hidden'' sage cell, where the hidden tag is
+%replaced with ``answer''.
+%TODO: Change the display of the word ``hide'' to ``answer''.
+\begin{sageverbatim}
+%hide
+%latex
+#The answer is $\frac{1}{3}$, since there are three choices, and one has the prize.
+\end{sageverbatim}
+
+
+But now, like any good game show host, I'm going to throw you a
+curveball: I don't want the game to end so quickly.  There's not
+enough time run more commercials, or to play that awful music, unless
+I make you make you sweat some more. 
+
+
+So here's the play: I announce that I know where the prize is, and I'm
+going to help you out by showing you that the prize is NOT behind one
+of the doors you didn't choose (I wouldn't expose the one you chose,
+because then the game would be over.  No Fun.  And I won't expose one
+where the prize IS, because, again, No Fun. And since we know that
+there's only one prize, I can always find a door to open that won't
+ruin the game.  Let's say you guessed Door Number 1, and then I open
+Door Number 3, and show you that there's a goat back there.  And then
+I ask, with as much cheesiness as I can muster: ``Would you like to
+switch?  To Door Number 2?  Or would you like to stick with your
+original guess of Door Number 1?''
+
+
+
+
 %right here I want a sage cell that can be computed in
 \begin{sageverbatim}
-\%hide
-\%auto
+%hide
+%auto
 print "n=1:\t     1 == 1(1+1)/2\t", 1 == 1*(1+1)/2  
 print "n=2:\t 1 + 2 == 2(2+1)/2\t", 1 + 2 == 2*(2+1)/2
 \end{sageverbatim}
 
 \begin{sageverbatim}
-\%hide
-\%auto
+%hide
+%auto
 @interact
 def _(n=(1..100)):
   summation = " + ".join([str(x) for x in range(1,n+1)])
@@ -62,8 +100,7 @@ def _(n=(1..100)):
   html('Right: $\\frac{n(n+1)}{2}\;=\;\\frac{%s(%s+1)}{2}\;=\;%s$'%(n,n,product))
 \end{sageverbatim}
 
-%right here I want a ``hidden'' sage cell, where the hidden tag is
-%replaced with ``answer''.
+
 
 
 
