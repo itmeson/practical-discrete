@@ -70,7 +70,13 @@ moderate in that authoring is easy, but hitting the right notes on
 every topic is hard, but there are a number of options for creating
 the remixable, executable text.  These options include:
 
- 1.  Sage -- a notebook-style interface to Python and a number of
+ 1.  Sage.  This is the currently implemented option.  To build the book,
+ fork the repo, cd into the practical_discrete directory, then type "make".
+ Assumes you have htlatex, tex2sws in your home directory, and a working
+ sage installation with the executable in your PATH.  Then upload the
+ .sws file into Sage.
+
+ Sage is -- a notebook-style interface to Python and a number of
  excellent mathamatical libraries is the most obvious choice.
  However, deploying the book would require managing a server, or
  requiring all Windows users to install a virtual machine and Sage
