@@ -1,9 +1,39 @@
 \chapter{Graphs}
 
-Graph theory is one of the more interesting 
+\section{Introduction}
+
+As we have found a number of times before, Graph Theory is one of
+those areas of mathematics that makes frequent use of words that are
+borrowed from everyday English (and from other areas of math), but
+with subtle and important differences in meaning that can trip you up
+if you're not careful.  Why do mathematicians do this to us?  Because
+it helps them understand what they are doing to use metaphors that
+guide their intuition.
 
 
-blah blah lorem.
+The kind of graph you're probably already familiar with in math is the
+Cartesian graph, a collection of ordered pairs of numbers, laid out on
+a grid on paper to make it convenient to display the values of
+different mathematical functions.  Below is a graph of the function
+$f(x) = mx + b$, a form familiar to many students from high school
+algebra.  You can play with the values of $m$ and $b$.
+
+\begin{sageverbatim}
+%hide
+x = var('x')
+@interact
+def _(m = (1..10), b=(1..10)):
+    b = 2
+    c = plot(m*x + b,(x,0,10))
+    print m*x + b
+    c.show()
+\end{sageverbatim}
+
+
+
+
+
+
 
 
 
