@@ -5,20 +5,38 @@ An introduction to discrete mathematics using an interactive
 programming environment and workbook model.
 
 
-The genesis of this project was a realization that most educators rely
-heavily on the textbook to provide a reference and a learning guide
-through worked examples and a large supply of practice problems.
-Unfortunately, while most textbooks do a fine job of supplying
-reference material and a copious supply of practice problems, they
-often do a poor job of guiding the learner to true understanding and
-mastery.  This happens because the types of problems we ask students
-to do for practice lend themselves too easily to parroting procedures
-observed in class or in the worked examples.  For the best students,
-this leads to high grades but often poor understanding, and for
-struggling students, it leads to a desperate attempt to memorize
-procedures without the context to understand when those procedures are
-relevant, leading inevitably to faulty recall and wildly variable
-performance on summative assessments.
+Science and mathematics textbooks are generally used for two purposes:
+as a reference and as a learning guide.  But traditional textbooks do
+a poor job guiding early learners, as they rely too heavily on
+numerous practice problems and a didactic mode of exposition that does
+not respect how learners actually learn, nor does it promote the kind
+of exploration that is supposed to be the hallmark of mathematical and
+scientific thought.  They do serve as excellent references, however,
+to the intermediate or advanced student seeking to improve their
+facility and efficiency through practice.
+
+A number of recent books have sought to correct this by offering a
+"workbook" model, in which students are guided through a process of
+inquiry that is carefully tailored to find and correct common
+misconceptions, and to allow students to construct knowledge and
+skills that are more in keeping with a scientific mindset than is the
+old standard "drill-and-practice".  These workbook approaches have
+been quite successful in a number of studies showing increased student
+learning over other approaches. (See, for example, the [Tutorials in
+Introductory Physics][tutorials] books produced by the University of
+Washington Physics Education research group)
+
+The difficulty with these workbooks is that they fail to provide a
+reference that is useful to the student attempting to add onto the
+deep conceptual understanding gained from the workbook the facility
+and efficiency that is a further hallmark of mastery.  Nor do they
+provide the kind of reference a student can use after a course is
+completed to "guide" their memory, unless the student is willing to
+repeat the inquiry exercises that they have already completed.  Such
+references exists, of course, in the form of traditional textbooks
+(which are expensive) or sites like Wikipedia -- but these are both
+written in a completely different style than the workbooks, and are
+difficult for a student trained in inquiry to use.
 
 
 This book aims to improve this situation in the specific domain of
@@ -43,22 +61,6 @@ exercises, also implemented as executable code, of types that offer
 the entire hierarchy of concept exploration and introduction, guided
 demolition of misconceptions, application, refinement, and extension.
 
-
-While there are no perfect analogues of this project, a number of
-resources offer inspiration for portions of the book.  For the
-parallel reference and learning portions of the book, offering only as
-much reference as is needed by the learner at any time, the paired
-tutorial and reference manual of Python (python.org) and other
-programming languages.  The Tutorials in Physics series produced by
-the Physics Education Research group at the University of Washington
-is one example of a similar approach to the workbook portion of the
-text, as are the Process Oriented Guided Inquiry Lessons (POGIL) being
-developed for chemistry education.  
-
-
-And for the narrative that ties the whole together, I take inspiration
-from books like "Div, Grad, Curl and All That: An Informal Text on
-Vector Calculus" by H.M. Schey.
 
 How to Make This Book 
 ==================== 
@@ -100,8 +102,18 @@ the remixable, executable text.  These options include:
  iPython, so that students can be offered free access to a permanently
  accessible version of the book upon completion of the course.
 
- 4.  ?
+
+How to Help
+===========
+Assuming someone is so inclined, I could use help in:
+
+  1. Making the build process in Sage simpler.  
+  2. Making the book prettier (LaTeX customization)
+  3. Writing demonstrations and problems, with explanatory
+  text and executable code in Sage
+  4. Making the Sage portions of the book separable, so sections written in
+  other languages can be spliced in place.
 
 
 
-
+[tutorials]: http://www.phys.washington.edu/groups/peg/tut.html
