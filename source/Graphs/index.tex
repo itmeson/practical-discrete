@@ -2,14 +2,25 @@
 
 \section{Introduction}
 
-As we have found a number of times before, Graph Theory is one of
-those areas of mathematics that makes frequent use of words that are
-borrowed from everyday English (and from other areas of math), but
-with subtle and important differences in meaning that can trip you up
-if you're not careful.  Why do mathematicians do this to us?  Because
-it helps them understand what they are doing to use metaphors that
-guide their intuition.
+Let's start with a silly question:  how many friends are there?
+What's silly about it?  Well, what does it even mean?  Let's make it
+more concrete:
 
+
+\begin{sageverbatim}
+%hide
+%auto
+M = Matrix ([ [0, 1, 1, 1, 1, 1],   #a 6x6 adjacency matrix
+              [1, 0, 1, 0, 1, 0], 
+              [1, 1, 0, 0, 1, 1],
+              [1, 0, 0, 0, 0, 0],
+              [1, 1, 1, 0, 0, 1],
+              [1, 0, 1, 0, 1, 0] ] )
+G = Graph(M)
+G.show()
+\end{sageverbatim}
+
+the object above is called a \textbf{graph}
 
 The kind of graph you're probably already familiar with in math is the
 Cartesian graph, a collection of ordered pairs of numbers, laid out on
