@@ -21,43 +21,86 @@ G.show()
 
 the object above is called a \textbf{graph}.  The numbered points
 represent people.  The lines connecting those points represent
-friendships.  ``Person 0'' is popular.  They have five friends --
-everybody else.  Person 3 is not quite so popular, they only have one
+friendships.  ``Person 0'' is popular.  She has five friends --
+everybody else.  Person 3 is not quite so popular, he only has one
 friend.  How many friends do each of the other people have?
 
 \begin{sageverbatim}
 %hide
 %auto
- 
 @interact
-def data(d0= '0', d1= '0', d2= '0', d3= '0', d4= '0', d5= '0'):
+def _(t1=text_control("Enter the number of friends for each person:"), auto_update=False, 
+    d0 = input_box(default=0, label="Person 0", type=Integer),
+    d1 = input_box(default=0, label="Person 1", type=Integer),
+    d2 = input_box(default=0, label="Person 2", type=Integer),
+    d3 = input_box(default=0, label="Person 3", type=Integer),
+    d4 = input_box(default=0, label="Person 4", type=Integer),
+    d5 = input_box(default=0, label="Person 5", type=Integer)):
+
     degrees = [d0, d1, d2, d3, d4, d5]
     degrees = [int(x) for x in degrees]
     d_act = [G.degree(x) for x in G.vertices()]
     if d_act != degrees:
-        print "one or more of these is wrong: ", degrees
+        print "One or more of these is wrong: ", degrees
     else:
         print "All correct."
 \end{sageverbatim}
 
+%TODO: Have to have in-document references working.
+Write a sentence explaining how you can compute the number of friends
+a person has, if you are given a graph like above.
 
-The kind of graph you're probably already familiar with in math is the
-Cartesian graph, a collection of ordered pairs of numbers, laid out on
-a grid on paper to make it convenient to display the values of
-different mathematical functions.  Below is a graph of the function
-$f(x) = mx + b$, a form familiar to many students from high school
-algebra.  You can play with the values of $m$ and $b$.
+\begin{sageverbatim}
+#Enter your answer here
+
+\end{sageverbatim}
+
+What do you get if you add up the total numbers of friends from each person? In
+the graph above you get:
+
+\begin{sageverbatim}
+#enter your answer here
+
+\end{sageverbatim}
+
+Now do the same for the following graph (find the number of friends
+for each person, and compute the total number of friends by adding up
+the total for each person):
+\begin{sageverbatim}
+%auto
+G2 = graphs.RandomGNP(n=10, p=0.5)
+G2.show()
+\end{sageverbatim}
+
+This graph is a little bigger, and was generated randomly (a random
+process was used to decide which people should be connected to which
+other people).  Create a few graphs yourself by running the cell
+below.  You can select different values for n (the number of people)
+and p (the probability that a given pair of people will happen to be
+friends).
 
 \begin{sageverbatim}
 %hide
-x = var('x')
+%auto
 @interact
-def _(m = (1..10), b=(1..10)):
-    b = 2
-    c = plot(m*x + b,(x,0,10))
-    print m*x + b
-    c.show()
+def g3graph(n=slider(vmin=3, vmax=30, step_size=1, label='n'), p=slider(vmin=0.5,vmax=1.0,step_size=0.1, label='p')):
+    G3 = graphs.RandomGNP(n, p)
+    G3.show()
 \end{sageverbatim}
+
+You can get Sage to tell you the number of friends for a particular person by entering \textbf{G3.degree(5)}
+to get the number of friends for person 5.  Try it.
+
+%TODO: objects defined inside interacts are not globally available!!
+\begin{sageverbatim}
+print G3.degree(5)
+\end{sageverbatim}
+
+
+
+
+In the language of graphs, the number of friends a person has is also
+called the \textbf{degree} of the corresponding \textbf{vertex}.
 
 
 
