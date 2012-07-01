@@ -6,7 +6,6 @@ Let's start with a silly question:  how many friends are there?
 What's silly about it?  Well, what does it even mean?  Let's make it
 more concrete:
 
-
 \begin{sageverbatim}
 %hide
 %auto
@@ -20,7 +19,27 @@ G = Graph(M)
 G.show()
 \end{sageverbatim}
 
-the object above is called a \textbf{graph}
+the object above is called a \textbf{graph}.  The numbered points
+represent people.  The lines connecting those points represent
+friendships.  ``Person 0'' is popular.  They have five friends --
+everybody else.  Person 3 is not quite so popular, they only have one
+friend.  How many friends do each of the other people have?
+
+\begin{sageverbatim}
+%hide
+%auto
+ 
+@interact
+def data(d0= '0', d1= '0', d2= '0', d3= '0', d4= '0', d5= '0'):
+    degrees = [d0, d1, d2, d3, d4, d5]
+    degrees = [int(x) for x in degrees]
+    d_act = [G.degree(x) for x in G.vertices()]
+    if d_act != degrees:
+        print "one or more of these is wrong: ", degrees
+    else:
+        print "All correct."
+\end{sageverbatim}
+
 
 The kind of graph you're probably already familiar with in math is the
 Cartesian graph, a collection of ordered pairs of numbers, laid out on
