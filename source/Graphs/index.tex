@@ -84,6 +84,7 @@ friends).
 %auto
 @interact
 def g3graph(n=slider(vmin=3, vmax=30, step_size=1, label='n'), p=slider(vmin=0.5,vmax=1.0,step_size=0.1, label='p')):
+    global G3 
     G3 = graphs.RandomGNP(n, p)
     G3.show()
 \end{sageverbatim}
@@ -91,16 +92,38 @@ def g3graph(n=slider(vmin=3, vmax=30, step_size=1, label='n'), p=slider(vmin=0.5
 You can get Sage to tell you the number of friends for a particular person by entering \textbf{G3.degree(5)}
 to get the number of friends for person 5.  Try it.
 
-%TODO: objects defined inside interacts are not globally available!!
 \begin{sageverbatim}
+#run this cell, try changing the number in the parentheses, and observe how it relates to the graph above.
+
 print G3.degree(5)
+
+# Write a brief explanation of what this command does, and what 'degree' means.
 \end{sageverbatim}
 
+Using the degree command, figure out how many friends each person in
+your graph has, then add them up to get the total number of friends.
+Enter it below to check your work:
+
+\begin{sageverbatim}
+%hide
+%auto
+@interact
+def check_friends(t1=text_control("Enter the total number of friends:"), auto_update=False, 
+    counted_friends = input_box(default=0, label="Total", type=Integer)):
+    G3_friends = sum(G3.degree())
+    if G3_friends == counted_friends:
+        print 'Correct!
+    else:
+        print 'Not quite -- try again'
+\end{sageverbatim}
+
+%In the language of graphs, the number of friends a person has is also
+%called the \textbf{degree} of the corresponding \textbf{vertex}.  So
+%the command \textbf{G3.degree(5)} accesses the degree (number of
+%friends) of vertex (person) 5.  
 
 
 
-In the language of graphs, the number of friends a person has is also
-called the \textbf{degree} of the corresponding \textbf{vertex}.
 
 
 
