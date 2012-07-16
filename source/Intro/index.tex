@@ -7,7 +7,7 @@ Every time I introduce myself at a party, my new acquaintance asks,
 at a university,'' I say, and then I pause, because just about every
 time, the reaction is the same: ``Oooo --- you must be very smart.  I
 was \emph{terrible} at that.''  And since I'm a slightly awkward geek,
-I stammer out my assurances that I'm not that smart, and then I
+I stammer out my assurances that I'm not that smart, and I
 commiserate about how difficult the high school/college versions of
 science or math classes usually are. 
 
@@ -32,7 +32,9 @@ the room.  It goes something like this:
 Note: This is a famous problem in mathematics.  If you've seen it
 before and know the answer, keep it to yourself for now.  If you
 haven't seen it before or you don't know the answer, DON'T LOOK IT UP!
-The point isn't the answer, it is the process of getting the answer.
+The point isn't the answer, it is the process of getting the answer,
+and if you look it up, you will short circuit the process of thinking
+about it.
 
 Suppose you are on a game show, and the host offers you an opportunity
 to select a prize from behind one of three doors.  The prize (a sports
@@ -52,30 +54,19 @@ below to do some figuring, if you have to.
 \end{sageverbatim}
 
 
-%right here I want a ``hidden'' sage cell, where the hidden tag is
-%replaced with ``answer''.
-%TODO: Change the display of the word ``hide'' to ``answer''.
-\begin{sageverbatim}
-%hide
-%latex
-#The answer is $\frac{1}{3}$, since there are three choices, and one
-  has the prize.
-\end{sageverbatim}
-
+%TODO: I want to be able to change the display of the word ``hide'' to ``answer''.
 \begin{sageverbatim}
 %hide
 %auto
 @interact
-def _(Probability=([0/3,1/3, 2/3, 3/3])):
+def _(Probability=([0/3,1/3, 2/3, 3/3]), auto_update=False):
     choice = Probability
     if choice == 1/3:
-         html('1 / 3 is right.')
+         html('1 / 3 is right.  There are three doors, and the prize
+         is behind one of them.')
     else:
          html('%s is not right.'%(choice))
 \end{sageverbatim}    
-
-
-
 
 
 But now, like any good game show host, I'm going to throw you a
@@ -89,7 +80,7 @@ going to help you out by showing you that the prize is NOT behind one
 of the doors you didn't choose (I wouldn't expose the one you chose,
 because then the game would be over.  No Fun.  And I won't expose one
 where the prize IS, because, again, No Fun. And since we know that
-there's only one prize, I can always find a door to open that won't
+there's only one prize, there's always a door available to open that won't
 ruin the game.  Let's say you guessed Door Number 1, and then I open
 Door Number 3 to show you that there's a goat back there.  And then
 I ask, with as much cheesiness as I can muster: ``Would you like to
@@ -112,9 +103,10 @@ your original guess, and how many times you win if you switch.
 \subsection{The answer}
 Alright, so I assume you tried it out, and since this is a game that
 involves some randomness, I hope you tried it a bunch of times,
-because we all know that it is possible to flip a coin 10 times in a
-row Heads -- it is only when you try it hundreds of times that you can
-be sure the pattern of half and half will be observed.
+because we all know that it is possible to flip ``Heads'' 10 times in
+a row (thought still pretty unlikely) -- but it is only when you try it
+hundreds of times that you can be sure the pattern of half and half
+will be observed.
 
 
 What did you find?
@@ -141,7 +133,7 @@ And here's the interesting thing: most people still have a hard time
 putting into words why the answer SHOULD BE that it is better to
 switch.  They can accept, empirically, that it seems to come out that
 way, but lacking a good explanation of why, many people come away from
-this problem confused.
+this problem confused, or even refusing to believe the result.
 
 
 I personally took a couple of weeks to understand this problem, when I
@@ -149,17 +141,12 @@ first saw it in Discrete Mathematics as an undergraduate.  The reason
 the problem is famous is that it was discussed in a popular magazine
 article in the early 1990's, and dozens of mathematics professors
 wrote to the author, (rudely) claiming that she had gotten it wrong
-when in fact she was right.  Most of them wrote sincere apologies
-later.
-
-
-Almost everyone gets this problem wrong at first, and even after
-seeing a good explanation, many of them still have a hard time
-accepting it.
+when in fact she was right.  Most of them eventually wrote sincere
+apologies.
 
 
 I'm not going to go into an explanation of the correct answer here,
-because I've found that it mostly doesn't help people ot \emph{hear}
+because I've found that it mostly doesn't help people to \emph{hear}
 (or read) the answer.  It helps them to DO it.  And then think through
 it, and make sense of the problem themselves.
 
@@ -170,66 +157,110 @@ people's reactions to it, tells us about Mathematics.
 \begin{itemize}
 \item \textbf{When you do math, you will be WRONG most of the time.}
 
-Most people have a really hard time with being told they are wrong.
-And somehow math teachers are, let's say, \emph{gifted} at making
-other people feel stupid.  It is not intentional, I assure you.  I am
-a math teacher, and a lot of my friends are math teachers.  And as a
-group, we are usually well-meaning, friendly, thoughtful people who
-really want to help you succeed.  But somehow we come across as the
-most condescending jerks in the academic world.
+  Most people have a really hard time with being told they are wrong.
+  And somehow math teachers are, let's say, \emph{gifted} at making
+  other people feel stupid.  It is not intentional, I assure you.  I
+  am a math teacher, and a lot of my friends are math teachers.  And
+  as a group, we are usually well-meaning, friendly, thoughtful people
+  who really want to help you succeed.  But somehow we come across
+  condescending jerks.
 
 
-I think this happens because of Fact 1.  It is very easy to tell when
-something is wrong in math.  The numbers and equations provide a handy
-truth-check that makes nonsense just leap off the page, once you know
-what to look for.  Math teachers see that kind of thing every single
-day, so we are very good at spotting errors.  And pointing them out.
-And that makes people feel dumb.  And no one likes to feel dumb.
-Therefore, lots of people don't like math.
+  I think this happens because of Fact 1.  It is very easy to tell
+  when something is wrong in math.  The numbers and equations provide
+  a handy truth-check that makes nonsense just leap off the page, once
+  you know what to look for.  Math teachers see that kind of thing
+  every single day, so we are very good at spotting errors.  And
+  pointing them out.  And that makes people feel dumb.  And no one
+  likes to feel dumb.  Therefore, lots of people don't like math.
 
 
-But being wrong most of the time is actually one of the most important
-and useful features of math.  One doesn't improve without knowing that
-something needs improving.  Math helpfully points out when we are
-wrong, so we can improve.  This may sound like a motivational
-platitude, but I assure you, that even as a working scientist, I am
-wrong MOST of the time, and days when I find that I wasn't wrong are
-usually days in which I wasn't working very hard.
+  But being wrong most of the time is actually one of the best
+  features of math.  One doesn't improve without knowing that
+  something needs improving.  Math helpfully points out when we are
+  wrong, so we can improve.  This may sound like a motivational
+  platitude, but I assure you, that even as a working scientist, I am
+  wrong MOST of the time, and days when I find that I wasn't wrong are
+  usually days in which I wasn't working very hard.
 
 
 \item \textbf{When you try to figure something out, it is often best
-  to try an experiment first.}
+    to try an experiment first.}  
 
+  Understanding the Monty Hall problem just by thinking about it
+  doesn't work for most people, and there is NOTHING WRONG WITH THAT.
+  Many people think that if they don't ``get'' something quickly, it
+  must be too hard for them, or they take it as evidence that this is
+  not their calling.
 
-Understanding the Monty Hall problem just by thinking about it doesn't
-work for most people, and there is NOTHING WRONG WITH THAT.  Many
-people think that if they don't ``get'' something quickly, it must be
-too hard for them, or they take it as evidence that this is not their
-calling.  
+  Math is hard for everybody (some of us have just forgotten about all
+  the work we once did), and it's silly to think that you can ``think
+  your way through'' everything.  Doing experiments, drawing pictures,
+  talking to others, finding ways to visualize and think about a
+  problem, and getting it wrong -- all of these are essential parts of
+  actually figuring stuff out.
 
+  This book will help you learn more tools to understand and figure
+  out problems, sometimes using techniques that may seem like tedious
+  distractions.  You will find yourself wondering, ``Why won't they
+  just teach me the \emph{right} way to do it and be done with it,
+  instead of forcing us to do all this exploration?''
 
-Math is hard for everybody (some of us have just forgotten
-about all the work we once did), and it's silly to think that you can
-``think your way through'' everything.  Doing experiments, drawing
-pictures, finding ways to visualize and think about a problem -- all
-of these are essential parts of actually figuring stuff out.  
+  The sad truth is that as professors, we are no more able to
+  anticipate the kinds of problems you will actually face than we are
+  to predict the future.  I couldn't possibly teach you every single
+  algorithm, so you could follow it like a cookbook, even if I wanted
+  to.  If I did, where would you be when you were faced with your
+  first genuine problem, with no idea how to begin?
 
+  And, to be more blunt, if I could put it in a cookbook, then why
+  wouldn't I just let a computer do it, rather than try to teach
+  fallible humans who will always be slower?
 
-This book will help you learn more tools to understand and figure out
-problems, sometimes using techniques that may seem like tedious
-distractions.  You will find yourself wondering, ``Why won't they just
-teach me the \emph{right} way to do it and be done with it, instead of
-forcing us to do all this exploration?''
+\item \textbf{Don't memorize too much.  But do memorize some}
 
+  You are much better off to learn the big guiding principles at play,
+  and then to practice applying them so you can understand their power
+  and limitations.  Don't memorize the steps to a particular proof --
+  instead memorize the ideas that inspired it.  As a student, this is
+  of course very hard to do, so it is my job to help point them out,
+  and to give you exercises that will stretch you in just the right
+  ways.
 
-The sad truth is that as professors, we are no more able to anticipate
-the kinds of problems you will actually face than we are to predict
-the future.  I couldn't possibly teach you every single algorithm, so
-you could follow it like a cookbook, even if I wanted to.  If I did,
-where would you be when you were faced with your first genuine
-problem, with no idea how to begin?  And, frankly, if I could put it
-in a cookbook, then why wouldn't I just let a computer do it, rather
-than try to teach fallible humans who will always be slower?
+\item \textbf{Develop a process that can help you attack new problems}
+
+  I'm going to focus a lot on a particular heuristic approach that
+  will be helpful in dealing with a lot of problems.  It won't always
+  work, and you won't always need all of it, but you should practice
+  thinking about your process, so you always have a toolkit handy even
+  when faced with something that is totally new.  That toolkit, along
+  with your intuition, is your best weapon in keeping up with the
+  machines.
+
+  My own process can be summarized with the following 5 steps:
+  Experiment, Visualize, Conjecture, Prove, Refine.  The most
+  important part of each step is that every one of them can be used to
+  show that I am wrong.  I have an idea about a problem?  Conduct an
+  experiment.  It might turn out that I was wrong.  I think of a way
+  to visualize the process at play in a problem, using a drawing, a
+  graph, a bunch of dice, some carboard boxes -- something.  I might
+  find out that I was wrong.  I think I have a strong conjecture about
+  the behavior of a mathematical object, so I try to construct an
+  argument to prove it -- it might turn out that I was wrong, and the
+  process of constructing that logic will help me see where.
+
+  If you are doing something that cannot possibly lead to you
+  discovering that you were wrong -- then you are not doing
+  mathematics.
+
+\item \textbf{Wrong is good}
+
+ In case I haven't been clear enough: being wrong is good.  It means
+ that you are thinking, it means that you are being challenged.  Most
+ people feel stupid because math points out how often they are wrong.
+ Instead, they should feel empowered because it proves that they are
+ doing something with consequence.
+
 \end{itemize}
 
 
