@@ -2,6 +2,43 @@
 
 \section{Introduction}
 
+Let's start with a classic question -- consider the following image of a city.
+A river runs through the city center, and there are two islands in the river.
+A total of 7 bridges connect the islands to each other and to the banks of the
+river.  Supposedly the inhabitants of this city speculated on whether it was
+possible to take a tour of the city, visting every bridge exactly once without
+repeating any.  No one had ever succeeded in doing it, but there are a lot of possible paths one could take, and it was not obvious whether it could be done or not.  
+
+%TODO: How do you embed external images?
+
+Before we get into the details, take a few minutes and try to do it yourself --
+use pencil and paper and try to trace a path that hits every bridge without
+repeats.
+
+
+\begin{sageverbatim}
+%hide
+%auto
+M = Matrix ([ [0, 2, 0, 1],   #a 4x4 adjacency matrix
+              [2, 0, 2, 1], 
+              [0, 2, 0, 1],
+              [1, 1, 1, 0] ] )
+global G_Bridges
+G_Bridges = Graph(M)
+G_Bridges.show()
+\end{sageverbatim}
+
+
+
+The answer isn't obvious, is it?  It \emph{seems} like there isn't a way to do
+it -- one always seems to get stuck on one of the land areas, unable to get
+back to one of the bridges.  But if we're going to be confident in asserting
+that there isn't any way to do it, we're going to have be a lot more concrete
+than that.  Historically, this problem was the genesis of the entire field of
+graph theory.  In 1735, Leonhard Euler, one of the truly staggering
+mathematical intellects of history, published a paper demonstrating that it is in fact impossible.  His argument was  
+
+
 Let's start with a silly question:  how many friends are there?
 What's silly about it?  Well, what does it even mean?  Let's make it
 more concrete:
@@ -104,6 +141,7 @@ Using the degree command, figure out how many friends each person in
 your graph has, then add them up to get the total number of friends.
 Enter it below to check your work:
 
+%TODO: Why do I have to hit Update twice?
 \begin{sageverbatim}
 %hide
 %auto
@@ -112,7 +150,7 @@ def check_friends(t1=text_control("Enter the total number of friends:"), auto_up
     counted_friends = input_box(default=0, label="Total", type=Integer)):
     G3_friends = sum(G3.degree())
     if G3_friends == counted_friends:
-        print 'Correct!
+        print 'Correct!'
     else:
         print 'Not quite -- try again'
 \end{sageverbatim}
@@ -122,11 +160,11 @@ def check_friends(t1=text_control("Enter the total number of friends:"), auto_up
 %the command \textbf{G3.degree(5)} accesses the degree (number of
 %friends) of vertex (person) 5.  
 
-
-
-
-
-
+%
+%\begin{tikzpicture}[sibling distance=12em]
+%  \node {\pgfbox[center,bottom]{\pgfuseimage{bridges}}}
+%    };
+%\end{tikzpicture}
 
 
 
