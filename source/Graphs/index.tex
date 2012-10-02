@@ -1,5 +1,25 @@
 \chapter{Graphs}
 
+% helper functions
+
+\begin{sageverbatim}
+%hide
+%auto
+
+def graph_highlight_edge_set(g, list_of_edges, color="red", default="black"):
+    """Color a subset of edges of a graph a specified color."""
+    
+    x_list = [(e[0],e[1]) for e in list_of_edges]
+    for e in g.edges():
+        g.set_edge_label(e[0],e[1], 1 if (e[0],e[1]) in x_list or  (e[1], e[0]) in x_list else 2)
+    d = {1: color, 2: default}
+    print g.edges(), d
+    g.plot(edge_colors=g._color_by_label(d)).show()
+
+\end{sageverbatim}
+
+
+
 \section{Introduction}
 
 Let's start with a classic question -- consider the following image of a city.

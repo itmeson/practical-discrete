@@ -1,0 +1,47 @@
+\chapter{GraphRef}
+
+\section{Definitions}
+
+\begin{enumerate}
+
+\item A graph, $G$, is a set of vertices, $V$, and a set of edges, $E$, such that each edge $e \in E$ is associated with an unordered pair of vertices, $(a,b)$.
+
+\item The set of edges of a graph is denoted $E(G)$.
+
+\item The set of vertices of a graph is denoted $V(G)$.
+
+\item A \emph{multigraph} is a graph $G$ in which more than one edge is permitted between two vertices.
+
+\item Two vertices $a, b \in V(G)$ are said to be adjacent if an edge connects them, ie $(a,b) \in E(G)$.
+
+\end{enumerate}
+
+\section{Sage Tools}
+\begin{enumerate}
+
+\item Graph.  The simplest way to construct a moderate sized graph in Sage is
+using an adjacency matrix, $A_{ij}$, in which two vertices $(i,j)$ are
+connected by an edge if the entry $A_{ij}$ is non-zero.  A multigraph can be
+constructed with non-unit matrix entries, while the graph can be restricted to
+a case of a simple graph if every entry is either $1$ or $0$:
+
+\begin{sageverbatim}
+M = Matrix ([ [0, 1, 1, 1, 1, 1],   #a 6x6 adjacency matrix
+               [1, 0, 1, 0, 1, 0],
+               [1, 1, 0, 0, 1, 1],
+               [1, 0, 0, 0, 0, 0],
+               [1, 1, 1, 0, 0, 1],
+               [1, 0, 1, 0, 1, 0] ] )
+
+eList = []
+for e in G.edges():    
+    if e[0] == 0 or e[1] == 0:
+        eList.append((e[0],e[1],None))
+
+graph_highlight_edge_set(G, eList, color='red', default='green')
+        
+print G.edges()
+\end{sageverbatim}
+
+
+\end{enumerate}
